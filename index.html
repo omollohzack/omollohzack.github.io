@@ -98,23 +98,23 @@
     .hero>div:first-child{animation:hero-rise .8s cubic-bezier(.2,.7,.2,1) both}
     .hero-visual{animation:hero-rise 1s .12s cubic-bezier(.2,.7,.2,1) both}
     .strip{animation:hero-rise 1s .22s cubic-bezier(.2,.7,.2,1) both}
-    @keyframes hero-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes hero-rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
   }
 
   /* ---------- motion: ambient (CSS-only, transform/opacity) ---------- */
   @media(prefers-reduced-motion:no-preference){
-    .glow.p{animation:breathe 7s ease-in-out infinite alternate}
-    @keyframes breathe{from{opacity:.72;transform:scale(1)}to{opacity:1;transform:scale(1.07)}}
-    .arc.tr{animation:drift 46s ease-in-out infinite alternate}
-    .arc.bl{animation:drift 58s ease-in-out infinite alternate-reverse}
-    @keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-26px,18px,0)}}
-    h1 .grad{background-size:220% 100%;animation:sheen 9s ease-in-out infinite alternate}
-    @keyframes sheen{from{background-position:0% 50%}to{background-position:90% 50%}}
-    .portrait{animation:floaty 9s ease-in-out infinite alternate}
-    @keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+    .glow.p{animation:breathe 6s ease-in-out infinite alternate}
+    @keyframes breathe{from{opacity:.55;transform:scale(.97)}to{opacity:1;transform:scale(1.13)}}
+    .arc.tr{animation:drift 34s ease-in-out infinite alternate}
+    .arc.bl{animation:drift 44s ease-in-out infinite alternate-reverse}
+    @keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-48px,30px,0)}}
+    h1 .grad{background-size:220% 100%;animation:sheen 6.5s ease-in-out infinite alternate}
+    @keyframes sheen{from{background-position:0% 50%}to{background-position:100% 50%}}
+    .portrait{animation:floaty 7.5s ease-in-out infinite alternate}
+    @keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-14px)}}
     .avail .dot{position:relative}
-    .avail .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(46,224,111,.75);animation:ping 2.2s cubic-bezier(0,0,.2,1) infinite}
-    @keyframes ping{0%{transform:scale(.55);opacity:1}80%,100%{transform:scale(1.55);opacity:0}}
+    .avail .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(46,224,111,.8);animation:ping 1.9s cubic-bezier(0,0,.2,1) infinite}
+    @keyframes ping{0%{transform:scale(.55);opacity:1}80%,100%{transform:scale(1.9);opacity:0}}
   }
 
   /* ---------- motion: interaction ---------- */
@@ -123,25 +123,59 @@
       transform:scaleX(0);transform-origin:left;transition:transform .32s ease}
   .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
   .btn-v,.btn-o,.talk,.btn{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease,color .25s ease,background .25s ease}
-  .btn-v:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(124,92,255,.48)}
-  .btn-o:hover,.btn:hover{transform:translateY(-2px)}
+  .btn-v:hover{transform:translateY(-3px);box-shadow:0 20px 46px rgba(124,92,255,.55)}
+  .btn-o:hover,.btn:hover{transform:translateY(-3px)}
   .talk:hover{transform:translateY(-1px)}
   .card{transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
-  .card:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+  .card:hover{transform:translateY(-8px);box-shadow:0 28px 56px rgba(0,0,0,.5)}
   .card .glyph{transition:transform .5s ease}
-  .card:hover .glyph{transform:translateY(-6px)}
+  .card:hover .glyph{transform:translateY(-10px)}
   .skill{transition:transform .3s ease,background .3s ease}
   .skill:hover{transform:translateY(-4px);background:rgba(255,255,255,.04)}
   .feat svg{display:block;margin:0 auto;transition:transform .3s ease}
   .feat .code-glyph{display:inline-block;transition:transform .3s ease}
   .feat:hover svg,.feat:hover .code-glyph{transform:translateY(-3px)}
 
-  /* ---------- motion: scroll reveal (progressive enhancement) ---------- */
+  /* ---------- zig-zag categories ---------- */
+  .wrap{position:relative;z-index:1}
+  .zig{max-width:960px}
+  .zig.r{margin-left:auto}
+  @media(max-width:900px){.zig{max-width:none}}
+  #projects .kicker{color:#8fd0ff}
+  #writing .kicker{color:#e3a7ff}
+  #about .kicker{color:#7fe6b0}
+
+  /* ---------- scenic layers: progress + parallax orbs ---------- */
+  .progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:60;transform-origin:left;transform:scaleX(0);
+      background:linear-gradient(90deg,#8f6bff,#c4a5ff,#7dd0ff)}
+  .scene{position:fixed;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0;opacity:.55}
+  .scene.s1{width:520px;height:520px;right:-140px;top:14%;background:radial-gradient(circle,rgba(124,92,255,.22),transparent 65%)}
+  .scene.s2{width:460px;height:460px;left:-160px;top:50%;background:radial-gradient(circle,rgba(64,110,255,.18),transparent 65%)}
+  .scene.s3{width:430px;height:430px;right:-120px;top:82%;background:radial-gradient(circle,rgba(190,80,255,.15),transparent 65%)}
+  @supports (animation-timeline: scroll()){
+    @media(prefers-reduced-motion:no-preference){
+      .progress{animation:prog linear both;animation-timeline:scroll()}
+      @keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+      .scene.s1{animation:para1 linear both;animation-timeline:scroll()}
+      .scene.s2{animation:para2 linear both;animation-timeline:scroll()}
+      .scene.s3{animation:para3 linear both;animation-timeline:scroll()}
+      @keyframes para1{from{transform:translateY(0)}to{transform:translateY(-200px)}}
+      @keyframes para2{from{transform:translateY(70px)}to{transform:translateY(-150px)}}
+      @keyframes para3{from{transform:translateY(130px)}to{transform:translateY(-230px)}}
+    }
+  }
+
+  /* ---------- motion: scroll reveal, alternating sides ---------- */
   @supports (animation-timeline: view()){
     @media(prefers-reduced-motion:no-preference){
-      section,.band,.skill-row{animation:rise-in linear both;animation-timeline:view();animation-range:entry 2% entry 42%}
+      .zig.l{animation:slide-l linear both;animation-timeline:view();animation-range:entry 2% entry 45%}
+      .zig.r{animation:slide-r linear both;animation-timeline:view();animation-range:entry 2% entry 45%}
       .card{animation:fade-in linear both;animation-timeline:view();animation-range:entry 0% entry 38%}
-      @keyframes rise-in{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+      .cards .card:nth-child(2){animation-range:entry 6% entry 44%}
+      .cards .card:nth-child(3){animation-range:entry 3% entry 41%}
+      .cards .card:nth-child(4){animation-range:entry 9% entry 47%}
+      @keyframes slide-l{from{opacity:0;transform:translateX(-46px)}to{opacity:1;transform:translateX(0)}}
+      @keyframes slide-r{from{opacity:0;transform:translateX(46px)}to{opacity:1;transform:translateX(0)}}
       @keyframes fade-in{from{opacity:0}to{opacity:1}}
     }
   }
@@ -160,7 +194,7 @@
   /* ---------- sections ---------- */
   section{padding:74px 0 8px;scroll-margin-top:80px}
   .kicker{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--dim);font-weight:600}
-  .kicker .rule{display:inline-block;vertical-align:middle;width:40px;height:1px;background:var(--dim);margin-left:12px;opacity:.6}
+  .kicker .rule{display:inline-block;vertical-align:middle;width:40px;height:1px;background:currentColor;margin-left:12px;opacity:.65}
   h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:650;letter-spacing:-.02em;line-height:1.15;margin-top:14px}
   h2 .dim{color:var(--dim)}
 
@@ -225,6 +259,11 @@
 </head>
 <body>
 
+<div class="progress" aria-hidden="true"></div>
+<div class="scene s1" aria-hidden="true"></div>
+<div class="scene s2" aria-hidden="true"></div>
+<div class="scene s3" aria-hidden="true"></div>
+
 <nav>
   <div class="wrap nav-in">
     <a class="brand" href="#home"><span class="mark">&lt;/&gt;</span><span>Omollohzack</span></a>
@@ -280,7 +319,7 @@
 
 <main class="wrap">
 
-  <section id="skills">
+  <section id="skills" class="zig l">
     <div class="skills">
       <div>
         <p class="kicker">My Skills<span class="rule"></span></p>
@@ -297,7 +336,7 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="zig r">
     <div class="proj-head">
       <div>
         <p class="kicker">My Projects<span class="rule"></span></p>
@@ -325,20 +364,20 @@
     </div>
   </section>
 
-  <section id="writing" class="writing">
+  <section id="writing" class="writing zig l">
     <p class="kicker">Writing<span class="rule"></span></p>
     <h2>Notes from<br><span class="dim">the workbench.</span></h2>
     <p><a href="https://doi.org/10.5281/zenodo.24231543" target="_blank" rel="noopener">The Inhabitants Belong to the World, Not the Model</a> — the Project Genesis design paper: provider-independent identity and social commitments in a persistent world for autonomous agents. Preprint, November 2026, DOI 10.5281/zenodo.24231543 · also on <a href="https://independent.academia.edu/OmollohZack" target="_blank" rel="noopener">academia.edu</a></p>
     <p><a href="https://dev.to/omollohzack/i-built-a-flash-loan-arbitrage-bot-on-arbitrum-then-proved-it-loses-money-1b66" target="_blank" rel="noopener">I Built a Flash-Loan Arbitrage Bot on Arbitrum — Then Proved It Loses Money</a> — a measured post-mortem of the research above, published on DEV. More writing: <a href="https://dev.to/omollohzack" target="_blank" rel="noopener">dev.to/omollohzack</a></p>
   </section>
 
-  <section id="about" class="about">
+  <section id="about" class="about zig r">
     <p class="kicker">About<span class="rule"></span></p>
     <h2>Odiwuor Zacharia Omollo</h2>
     <p>Freelance <strong>AI Engineer &amp; Full-Stack Developer</strong> since 2024, working remotely from Nairobi, Kenya. I specialise in <strong>LLM applications and AI agents</strong> — Python and TypeScript, React front ends, Node.js back ends — and I build in the open: my research and products live on GitHub, tested and documented. I also design, build and secure websites for clients, including ongoing work for a Nairobi apparel company and a community organisation. Currently studying Software Development through BYU-Pathway Worldwide (BYU-Idaho), and <strong>open to remote work</strong> worldwide.</p>
   </section>
 
-  <div class="band" id="contact">
+  <div class="band zig l" id="contact">
     <div class="band-in">
       <div>
         <p class="kicker"><span class="dot"></span>Let&rsquo;s Collaborate</p>
