@@ -209,9 +209,13 @@
   .band.stage{padding:0}
   @media(max-width:900px){
     .wrap{padding:0 14px}
-    header{position:static;min-height:0;display:block;padding:104px 0 40px}
-    .stage{position:static;padding:44px 20px}
+    header{position:static;min-height:0;display:block;padding:88px 0 30px}
+    .stage{position:static;padding:30px 20px;margin-bottom:16px}
     .stage.fill{min-height:0;display:block}
+    .portrait{width:min(62%,248px)}
+    .feat{padding:18px 14px 15px}
+    .stats{gap:12px;margin-top:24px}
+    .stat .n{font-size:32px}
   }
   @media(prefers-reduced-motion:reduce){
     header{position:static;min-height:0}
@@ -295,6 +299,15 @@
   .foot-links{display:flex;gap:22px;align-items:center}
   .foot-links a{text-decoration:none;color:var(--dim);font-weight:550}
   .foot-links a:hover{color:var(--text)}
+
+  /* ---------- mobile compact (shorter page) ---------- */
+  @media(max-width:900px){
+    .card .vis{height:108px}
+    .card .body{padding:16px 18px 18px}
+    .skill img,.skill .ai-badge{width:40px;height:40px}
+    h2{font-size:1.5rem}
+    .band-in{padding:30px 24px}
+  }
 </style>
 </head>
 <body>
