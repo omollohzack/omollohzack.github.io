@@ -49,51 +49,70 @@
   nav{position:fixed;inset:0 0 auto 0;z-index:50;
       background:rgba(5,5,8,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
       border-bottom:1px solid rgba(255,255,255,.06)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
-  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:650;font-size:1.02rem;letter-spacing:-.01em}
-  .brand .mark{color:var(--violet2);font-weight:700}
-  .brand .sep{width:1px;height:20px;background:var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:650;font-size:1.05rem;letter-spacing:-.01em}
+  .brand .mark{color:var(--violet2);font-weight:800;font-size:1.2rem}
   .nav-links{display:flex;gap:34px}
-  .nav-links a{text-decoration:none;color:var(--dim);font-size:.9rem;font-weight:500}
+  .nav-links a{text-decoration:none;color:var(--dim);font-size:.92rem;font-weight:500;padding:6px 0}
   .nav-links a:hover{color:var(--text)}
-  .talk{text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid rgba(255,255,255,.25);
-        padding:8px 18px;border-radius:999px}
+  .nav-links a.active{color:var(--text);border-bottom:2px solid var(--violet)}
+  .talk{text-decoration:none;font-size:.9rem;font-weight:600;border:1px solid rgba(177,140,255,.55);color:var(--text);
+        padding:9px 20px;border-radius:999px}
   .talk:hover{border-color:var(--violet2);color:var(--violet2)}
-  @media(max-width:760px){.nav-links{display:none}}
+  @media(max-width:820px){.nav-links{display:none}}
 
   /* ---------- hero ---------- */
-  header{position:relative;padding:158px 0 84px;overflow:hidden}
+  header{position:relative;padding:138px 0 0;overflow:hidden}
+  .arc{position:absolute;border-radius:50%;pointer-events:none}
+  .arc.tr{width:880px;height:880px;right:-330px;top:-330px;
+      background:radial-gradient(circle,transparent 56%,rgba(124,92,255,.16) 63%,rgba(124,92,255,.05) 70%,transparent 74%)}
+  .arc.bl{width:940px;height:940px;left:-420px;bottom:-560px;
+      background:radial-gradient(circle,transparent 54%,rgba(124,92,255,.20) 62%,rgba(124,92,255,.06) 70%,transparent 75%)}
   .glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
-  .glow.a{width:640px;height:640px;right:-160px;top:-180px;background:radial-gradient(circle,rgba(124,92,255,.34),transparent 65%)}
-  .glow.b{width:480px;height:480px;left:-200px;bottom:-260px;background:radial-gradient(circle,rgba(64,110,255,.16),transparent 65%)}
-  .hero{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(36px,6vw,84px);align-items:center;position:relative}
-  @media(max-width:900px){.hero{grid-template-columns:1fr;gap:38px}.hero-visual{margin:0 auto;width:min(100%,520px)}}
-  @media(max-width:600px){header{padding:120px 0 54px}.hero{gap:30px}.hero-visual{width:100%}}
-  .eyebrow{font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:var(--dim);font-weight:600}
-  .eyebrow .rule{display:inline-block;vertical-align:middle;width:44px;height:1px;background:var(--dim);margin-left:14px;opacity:.6}
-  h1{font-size:clamp(3rem,6.5vw,5.25rem);line-height:.99;font-weight:720;letter-spacing:-.055em;margin:24px 0 22px;text-wrap:balance}
+  .glow.p{width:560px;height:560px;right:-40px;top:60px;background:radial-gradient(circle,rgba(124,92,255,.32),transparent 65%)}
+  .hero{display:grid;grid-template-columns:1.02fr .98fr;gap:20px;align-items:center;position:relative}
+  .avail{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.16);border-radius:999px;
+         padding:8px 16px;font-size:.83rem;color:var(--text);background:rgba(255,255,255,.03)}
+  .avail .dot{width:8px;height:8px;border-radius:50%;background:#2ee06f;box-shadow:0 0 10px rgba(46,224,111,.9)}
+  h1{font-size:clamp(2.9rem,6.4vw,5.1rem);line-height:1.03;font-weight:750;letter-spacing:-.03em;margin:26px 0 20px}
   h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .sub{color:var(--dim);font-size:1.13rem;line-height:1.6;max-width:46ch}
-  .sub strong{color:var(--text);font-weight:600}
-  .cta{display:flex;align-items:center;gap:22px;margin-top:34px;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#000;text-decoration:none;
-       font-weight:600;font-size:.95rem;padding:13px 14px 13px 26px;border-radius:999px}
-  .btn .arr{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#000;color:#fff;font-size:.95rem}
-  .ghost{display:inline-flex;align-items:center;gap:11px;text-decoration:none;font-weight:550;font-size:.95rem;color:var(--text)}
-  .ghost .play{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);font-size:.7rem}
-  .motto{margin-top:52px;color:var(--dim);font-size:.8rem;letter-spacing:.26em;text-transform:uppercase}
-  .motto::before{content:"";display:inline-block;vertical-align:middle;width:1px;height:26px;background:var(--line);margin-right:16px}
-  .hero-visual{position:relative;isolation:isolate;display:flex;justify-content:center;align-items:center;min-height:440px}
-  .hero-visual::before{content:"";position:absolute;z-index:-2;width:112%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.23) 0%,rgba(83,67,160,.12) 38%,transparent 70%);filter:blur(18px)}
-  .hero-visual::after{content:"";position:absolute;z-index:2;inset:12% 7% 0;border-radius:30px;pointer-events:none;background:linear-gradient(180deg,transparent 68%,rgba(5,5,8,.22) 100%);mix-blend-mode:multiply}
-  .hero-visual svg{position:absolute;z-index:-1;width:112%;max-width:none;height:auto;left:50%;top:54%;transform:translate(-50%,-50%);opacity:.34;filter:blur(.3px);pointer-events:none}
-  .portrait{position:relative;z-index:1;display:block;width:min(100%,420px);aspect-ratio:3/4;object-fit:cover;object-position:50% 24%;border-radius:28px;border:1px solid rgba(255,255,255,.12);box-shadow:0 28px 80px rgba(0,0,0,.48),0 0 72px rgba(124,92,255,.18);transform:translateY(0);transition:transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .55s ease}
-  .portrait:hover{transform:translateY(-5px);box-shadow:0 36px 90px rgba(0,0,0,.52),0 0 88px rgba(124,92,255,.24)}
-  @media(max-width:900px){.hero-visual{min-height:0;padding:8px 0 0}.portrait{width:min(78%,380px)}.hero-visual::after{inset:8% 11% 0}}
-  @media(max-width:600px){.portrait{width:min(88%,360px);border-radius:24px}.hero-visual::before{width:100%}}
+  .roles{font-size:1.12rem;font-weight:550;color:var(--text)}
+  .roles span{color:var(--dim);margin:0 8px}
+  .sub{color:var(--dim);font-size:1.08rem;line-height:1.65;max-width:44ch;margin-top:16px}
+  .cta{display:flex;align-items:center;gap:16px;margin-top:34px;flex-wrap:wrap}
+  .btn-v{display:inline-flex;align-items:center;gap:11px;background:linear-gradient(135deg,#8f6bff,#6a3df0);color:#fff;text-decoration:none;
+       font-weight:600;font-size:.96rem;padding:15px 28px;border-radius:999px;box-shadow:0 12px 34px rgba(124,92,255,.35)}
+  .btn-o{display:inline-flex;align-items:center;gap:11px;text-decoration:none;font-weight:550;font-size:.96rem;color:var(--text);
+       border:1px solid rgba(255,255,255,.28);padding:15px 28px;border-radius:999px}
+  .btn-o:hover{border-color:var(--violet2);color:var(--violet2)}
+  .hero-visual{position:relative;display:flex;justify-content:center;align-items:flex-end}
+  .portrait{position:relative;z-index:1;width:min(104%,480px);height:auto;display:block;
+      -webkit-mask-image:radial-gradient(ellipse 74% 70% at 50% 42%,#000 52%,transparent 76%);
+              mask-image:radial-gradient(ellipse 74% 70% at 50% 42%,#000 52%,transparent 76%)}
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr}
+    .hero-visual{margin-top:6px}
+    .portrait{width:min(76%,340px)}
+  }
+  @media(prefers-reduced-motion:no-preference){
+    .hero>div:first-child{animation:hero-rise .8s cubic-bezier(.2,.7,.2,1) both}
+    .hero-visual{animation:hero-rise 1s .12s cubic-bezier(.2,.7,.2,1) both}
+    .strip{animation:hero-rise 1s .22s cubic-bezier(.2,.7,.2,1) both}
+    @keyframes hero-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  }
 
-  @media(prefers-reduced-motion:no-preference){.hero>div:first-child{animation:hero-rise .8s cubic-bezier(.2,.7,.2,1) both}.hero-visual{animation:hero-rise 1s .12s cubic-bezier(.2,.7,.2,1) both}@keyframes hero-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}}
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.portrait{transition:none}}\n\n  /* ---------- sections ---------- */
+  /* feature strip */
+  .strip{position:relative;margin-top:8px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.025);
+         display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}
+  .feat{padding:28px 26px 24px;text-align:center}
+  .feat + .feat{border-left:1px solid var(--line)}
+  .feat svg{width:27px;height:27px;stroke:var(--violet2);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .feat .code-glyph{font-size:1.55rem;font-weight:800;color:var(--violet2);line-height:1.15}
+  .feat h3{font-size:1rem;font-weight:650;margin-top:12px}
+  .feat p{color:var(--dim);font-size:.9rem;line-height:1.5;margin-top:6px}
+  @media(max-width:820px){.strip{grid-template-columns:repeat(2,1fr)}.feat:nth-child(3){border-left:none}.feat:nth-child(n+3){border-top:1px solid var(--line)}}
+
+  /* ---------- sections ---------- */
   section{padding:74px 0 8px;scroll-margin-top:80px}
   .kicker{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--dim);font-weight:600}
   .kicker .rule{display:inline-block;vertical-align:middle;width:40px;height:1px;background:var(--dim);margin-left:12px;opacity:.6}
@@ -147,6 +166,9 @@
   .band .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--violet2);margin-right:10px}
   .band h2{margin-top:10px}
   .band p{color:var(--dim);margin-top:8px;font-size:1rem}
+  .btn{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#000;text-decoration:none;
+       font-weight:600;font-size:.95rem;padding:13px 14px 13px 26px;border-radius:999px}
+  .btn .arr{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#000;color:#fff;font-size:.95rem}
   @media(max-width:640px){.band-in{padding:32px 24px}}
 
   footer{border-top:1px solid rgba(255,255,255,.06);margin-top:70px}
@@ -160,48 +182,53 @@
 
 <nav>
   <div class="wrap nav-in">
-    <a class="brand" href="#home"><span class="mark">&lt;/&gt;</span><span class="sep"></span><span>Lordgrim</span></a>
+    <a class="brand" href="#home"><span class="mark">&lt;/&gt;</span><span>Omollohzack</span></a>
     <div class="nav-links">
-      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="https://dev.to/omollohzack" target="_blank" rel="noopener">Blog</a><a href="#contact">Contact</a>
     </div>
-    <a class="talk" href="https://www.linkedin.com/in/odiwuor-zacharia" target="_blank" rel="noopener">Let&rsquo;s Talk &#8599;</a>
+    <a class="talk" href="https://www.linkedin.com/in/odiwuor-zacharia" target="_blank" rel="noopener">Let&rsquo;s Talk &#8594;</a>
   </div>
 </nav>
 
 <header id="home">
-  <div class="glow a"></div><div class="glow b"></div>
-  <div class="wrap hero">
-    <div>
-      <p class="eyebrow">Odiwuor Zacharia Omollo &middot; Software Developer &middot; AI Engineer<span class="rule"></span></p>
-      <h1>I build intelligent<br><span class="grad">solutions.</span></h1>
-      <p class="sub">I&rsquo;m <strong>Odiwuor Zacharia Omollo</strong> — an AI Engineer &amp; Full-Stack Developer in Nairobi, Kenya, building <strong>LLM applications, AI agents</strong> and open-source software with Python and TypeScript.</p>
-      <div class="cta">
-        <a class="btn" href="#projects">Explore My Work <span class="arr">&#8594;</span></a>
-        <a class="ghost" href="https://github.com/omollohzack" target="_blank" rel="noopener"><span class="play">&#9654;</span> GitHub Profile</a>
+  <div class="arc tr"></div><div class="arc bl"></div><div class="glow p"></div>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <p class="avail"><span class="dot"></span>Available for freelance &amp; full-time opportunities</p>
+        <h1>Odiwuor Zacharia<br><span class="grad">Omollo</span></h1>
+        <p class="roles">Software Developer <span>&bull;</span> AI Engineer <span>&bull;</span> Problem Solver</p>
+        <p class="sub">I build intelligent, scalable and beautiful digital experiences — from smart systems to elegant web applications.</p>
+        <div class="cta">
+          <a class="btn-v" href="#projects">View My Work &#8594;</a>
+          <a class="btn-o" href="#about">About Me</a>
+        </div>
       </div>
-      <p class="motto">Build. Verify. Ship.</p>
+      <div class="hero-visual">
+        <img class="portrait" src="portrait.jpg" alt="Portrait of Odiwuor Zacharia Omollo" width="1086" height="1448">
+      </div>
     </div>
-    <div class="hero-visual">
-      <img class="portrait" src="portrait.jpg" alt="Portrait of Odiwuor Zacharia Omollo" width="1086" height="1448">
-      <svg aria-hidden="true" viewBox="0 0 520 430" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="rib1" x1="0" y1="0" x2="520" y2="430" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#2a2150"/><stop offset=".45" stop-color="#8f6bff"/>
-            <stop offset=".75" stop-color="#4a2fb8"/><stop offset="1" stop-color="#120c2a"/>
-          </linearGradient>
-          <linearGradient id="rib2" x1="520" y1="0" x2="0" y2="430" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#0e0a24"/><stop offset=".5" stop-color="#5b3df0"/>
-            <stop offset="1" stop-color="#c4a5ff"/>
-          </linearGradient>
-          <radialGradient id="floor" cx=".5" cy=".5" r=".5">
-            <stop offset="0" stop-color="#7c5cff" stop-opacity=".4"/><stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <ellipse cx="270" cy="392" rx="215" ry="30" fill="url(#floor)"/>
-        <path d="M60 300 C150 130 300 360 380 170 C420 75 480 90 505 40 L505 120 C460 190 420 150 385 235 C310 415 150 210 92 330 C70 375 40 350 60 300 Z" fill="url(#rib1)" opacity=".92"/>
-        <path d="M30 210 C140 320 260 90 355 210 C415 285 470 240 492 185 L492 262 C440 330 385 300 330 250 C240 168 130 300 62 268 C28 252 8 238 30 210 Z" fill="url(#rib2)" opacity=".75"/>
-        <circle cx="470" cy="52" r="3.5" fill="#c4a5ff"/><circle cx="52" cy="120" r="2.5" fill="#8f6bff"/><circle cx="415" cy="330" r="2.5" fill="#7dd0ff"/>
-      </svg>
+    <div class="strip">
+      <div class="feat">
+        <span class="code-glyph">&lt;/&gt;</span>
+        <h3>Clean Code</h3>
+        <p>Write maintainable,<br>scalable code</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 2v3M14 2v3M10 19v3M14 19v3M2 10h3M2 14h3M19 10h3M19 14h3"/><circle cx="12" cy="12" r="1.6"/></svg>
+        <h3>AI &amp; Innovation</h3>
+        <p>Explore the frontier<br>of intelligent systems</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg>
+        <h3>Performance</h3>
+        <p>Build fast, efficient<br>solutions</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.7 2.6 4 5.7 4 9s-1.3 6.4-4 9c-2.7-2.6-4-5.7-4-9s1.3-6.4 4-9z"/></svg>
+        <h3>Global Mindset</h3>
+        <p>Think big, build for the world</p>
+      </div>
     </div>
   </div>
 </header>
