@@ -62,7 +62,8 @@
   @media(max-width:820px){.nav-links{display:none}}
 
   /* ---------- hero ---------- */
-  header{position:relative;padding:138px 0 0;overflow:hidden}
+  header{position:sticky;top:0;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+      padding:110px 0 54px;overflow:hidden;background:var(--bg)}
   .arc{position:absolute;border-radius:50%;pointer-events:none}
   .arc.tr{width:880px;height:880px;right:-330px;top:-330px;
       background:radial-gradient(circle,transparent 56%,rgba(124,92,255,.16) 63%,rgba(124,92,255,.05) 70%,transparent 74%)}
@@ -170,6 +171,8 @@
     @media(prefers-reduced-motion:no-preference){
       .zig.l{animation:slide-l linear both;animation-timeline:view();animation-range:entry 2% entry 45%}
       .zig.r{animation:slide-r linear both;animation-timeline:view();animation-range:entry 2% entry 45%}
+      .stage::before{animation:wash linear both;animation-timeline:view();animation-range:cover}
+      @keyframes wash{from{transform:translateY(-30px)}to{transform:translateY(30px)}}
       .card{animation:fade-in linear both;animation-timeline:view();animation-range:entry 0% entry 38%}
       .cards .card:nth-child(2){animation-range:entry 6% entry 44%}
       .cards .card:nth-child(3){animation-range:entry 3% entry 41%}
@@ -190,6 +193,37 @@
   .feat h3{font-size:1rem;font-weight:650;margin-top:12px}
   .feat p{color:var(--dim);font-size:.9rem;line-height:1.5;margin-top:6px}
   @media(max-width:820px){.strip{grid-template-columns:repeat(2,1fr)}.feat:nth-child(3){border-left:none}.feat:nth-child(n+3){border-top:1px solid var(--line)}}
+
+  /* ---------- stages: sticky stacked scenes ---------- */
+  .stage{position:sticky;top:84px;background:#0a0a11;border:1px solid var(--line);border-radius:26px;
+      box-shadow:0 -24px 60px rgba(0,0,0,.45);padding:64px 38px;overflow:hidden;scroll-margin-top:84px;margin-bottom:26px}
+  .stage.fill{min-height:calc(100svh - 108px);display:flex;flex-direction:column;justify-content:center}
+  .stage>*{position:relative}
+  .stage::before{content:"";position:absolute;inset:-34px 0;pointer-events:none;
+      background:radial-gradient(640px 320px at var(--wx,15%) 0%,var(--wash,rgba(124,92,255,.10)),transparent 70%)}
+  .zig.r{--wx:85%}
+  #projects{--wash:rgba(84,150,255,.10)}
+  #writing{--wash:rgba(200,110,255,.10)}
+  #about{--wash:rgba(80,220,160,.09)}
+  .band.stage{padding:0}
+  @media(max-width:900px){.stage{position:static}.stage.fill{min-height:0}}
+  @media(prefers-reduced-motion:reduce){
+    header{position:static;min-height:0}
+    .stage{position:static}
+    .stage.fill{min-height:0}
+  }
+
+  /* ---------- persistent frame (violet corner lines) ---------- */
+  .frame{position:fixed;width:118px;height:118px;pointer-events:none;z-index:40;opacity:.55}
+  .frame.tl{top:76px;left:14px;border-top:1px solid rgba(159,127,255,.55);border-left:1px solid rgba(159,127,255,.55);border-top-left-radius:58px}
+  .frame.br{bottom:14px;right:14px;border-bottom:1px solid rgba(159,127,255,.55);border-right:1px solid rgba(159,127,255,.55);border-bottom-right-radius:58px}
+  @media(max-width:900px){.frame{display:none}}
+
+  /* ---------- stats (About scene) ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+  .stat .n{display:block;font-size:42px;font-weight:800;letter-spacing:-.02em;color:#fff;line-height:1}
+  .stat .t{color:var(--dim);font-size:13px}
+  @media(max-width:640px){.stats{grid-template-columns:1fr 1fr}}
 
   /* ---------- sections ---------- */
   section{padding:74px 0 8px;scroll-margin-top:80px}
@@ -263,6 +297,8 @@
 <div class="scene s1" aria-hidden="true"></div>
 <div class="scene s2" aria-hidden="true"></div>
 <div class="scene s3" aria-hidden="true"></div>
+<div class="frame tl" aria-hidden="true"></div>
+<div class="frame br" aria-hidden="true"></div>
 
 <nav>
   <div class="wrap nav-in">
@@ -273,6 +309,8 @@
     <a class="talk" href="https://www.linkedin.com/in/odiwuor-zacharia" target="_blank" rel="noopener">Let&rsquo;s Talk &#8594;</a>
   </div>
 </nav>
+
+<div class="deck">
 
 <header id="home">
   <div class="arc tr"></div><div class="arc bl"></div><div class="glow p"></div>
@@ -319,7 +357,7 @@
 
 <main class="wrap">
 
-  <section id="skills" class="zig l">
+  <section id="skills" class="zig l stage fill">
     <div class="skills">
       <div>
         <p class="kicker">My Skills<span class="rule"></span></p>
@@ -336,7 +374,7 @@
     </div>
   </section>
 
-  <section id="projects" class="zig r">
+  <section id="projects" class="zig r stage">
     <div class="proj-head">
       <div>
         <p class="kicker">My Projects<span class="rule"></span></p>
@@ -364,20 +402,26 @@
     </div>
   </section>
 
-  <section id="writing" class="writing zig l">
+  <section id="writing" class="writing zig l stage fill">
     <p class="kicker">Writing<span class="rule"></span></p>
     <h2>Notes from<br><span class="dim">the workbench.</span></h2>
     <p><a href="https://doi.org/10.5281/zenodo.24231543" target="_blank" rel="noopener">The Inhabitants Belong to the World, Not the Model</a> — the Project Genesis design paper: provider-independent identity and social commitments in a persistent world for autonomous agents. Preprint, November 2026, DOI 10.5281/zenodo.24231543 · also on <a href="https://independent.academia.edu/OmollohZack" target="_blank" rel="noopener">academia.edu</a></p>
     <p><a href="https://dev.to/omollohzack/i-built-a-flash-loan-arbitrage-bot-on-arbitrum-then-proved-it-loses-money-1b66" target="_blank" rel="noopener">I Built a Flash-Loan Arbitrage Bot on Arbitrum — Then Proved It Loses Money</a> — a measured post-mortem of the research above, published on DEV. More writing: <a href="https://dev.to/omollohzack" target="_blank" rel="noopener">dev.to/omollohzack</a></p>
   </section>
 
-  <section id="about" class="about zig r">
+  <section id="about" class="about zig r stage fill">
     <p class="kicker">About<span class="rule"></span></p>
     <h2>Odiwuor Zacharia Omollo</h2>
     <p>Freelance <strong>AI Engineer &amp; Full-Stack Developer</strong> since 2024, working remotely from Nairobi, Kenya. I specialise in <strong>LLM applications and AI agents</strong> — Python and TypeScript, React front ends, Node.js back ends — and I build in the open: my research and products live on GitHub, tested and documented. I also design, build and secure websites for clients, including ongoing work for a Nairobi apparel company and a community organisation. Currently studying Software Development through BYU-Pathway Worldwide (BYU-Idaho), and <strong>open to remote work</strong> worldwide.</p>
+    <div class="stats">
+      <div class="stat"><span class="n">63</span><span class="t">tests green on Genesis main</span></div>
+      <div class="stat"><span class="n">2</span><span class="t">papers published</span></div>
+      <div class="stat"><span class="n">1</span><span class="t">DOI minted on Zenodo</span></div>
+      <div class="stat"><span class="n">23</span><span class="t">micro1 vetted skills</span></div>
+    </div>
   </section>
 
-  <div class="band zig l" id="contact">
+  <div class="band zig l stage fill" id="contact">
     <div class="band-in">
       <div>
         <p class="kicker"><span class="dot"></span>Let&rsquo;s Collaborate</p>
@@ -389,6 +433,8 @@
   </div>
 
 </main>
+
+</div>
 
 <footer>
   <div class="wrap foot-in">
