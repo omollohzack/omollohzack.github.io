@@ -10,6 +10,7 @@
 <meta property="og:title" content="Odiwuor Zacharia Omollo — AI Engineer & Full-Stack Developer">
 <meta property="og:description" content="AI Engineer & Full-Stack Developer in Nairobi, Kenya. I build intelligent solutions — LLM applications, AI agents and open-source software.">
 <meta property="og:url" content="https://omollohzack.github.io/">
+<meta property="og:image" content="https://omollohzack.github.io/portrait.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -19,6 +20,7 @@
   "jobTitle": "AI Engineer & Full-Stack Developer",
   "address": { "@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE" },
   "url": "https://omollohzack.github.io/",
+  "image": "https://omollohzack.github.io/portrait.jpg",
   "knowsAbout": ["Python", "TypeScript", "React", "Node.js", "Large Language Models", "AI Agents"],
   "sameAs": [
     "https://github.com/omollohzack",
@@ -65,7 +67,7 @@
   .glow.a{width:640px;height:640px;right:-160px;top:-180px;background:radial-gradient(circle,rgba(124,92,255,.34),transparent 65%)}
   .glow.b{width:480px;height:480px;left:-200px;bottom:-260px;background:radial-gradient(circle,rgba(64,110,255,.16),transparent 65%)}
   .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center;position:relative}
-  @media(max-width:900px){.hero{grid-template-columns:1fr}.hero-visual{display:none}}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}.hero-visual{margin-top:10px}.portrait{width:min(68%,290px)}}
   .eyebrow{font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:var(--dim);font-weight:600}
   .eyebrow .rule{display:inline-block;vertical-align:middle;width:44px;height:1px;background:var(--dim);margin-left:14px;opacity:.6}
   h1{font-size:clamp(2.7rem,6.2vw,4.9rem);line-height:1.04;font-weight:700;letter-spacing:-.03em;margin:22px 0 20px}
@@ -80,8 +82,9 @@
   .ghost .play{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);font-size:.7rem}
   .motto{margin-top:52px;color:var(--dim);font-size:.8rem;letter-spacing:.26em;text-transform:uppercase}
   .motto::before{content:"";display:inline-block;vertical-align:middle;width:1px;height:26px;background:var(--line);margin-right:16px}
-  .hero-visual{position:relative}
-  .hero-visual svg{width:100%;height:auto;display:block}
+  .hero-visual{position:relative;display:flex;justify-content:center}
+  .hero-visual svg{position:absolute;z-index:0;width:118%;max-width:none;height:auto;left:50%;top:54%;transform:translate(-50%,-50%);opacity:.9;pointer-events:none}
+  .portrait{position:relative;z-index:1;width:min(86%,370px);aspect-ratio:3/4;object-fit:cover;border-radius:26px;border:1px solid rgba(255,255,255,.14);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 100px rgba(124,92,255,.30)}
 
   /* ---------- sections ---------- */
   section{padding:74px 0 8px;scroll-margin-top:80px}
@@ -171,8 +174,9 @@
       </div>
       <p class="motto">Build. Verify. Ship.</p>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <svg viewBox="0 0 520 430" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="hero-visual">
+      <img class="portrait" src="portrait.jpg" alt="Portrait of Odiwuor Zacharia Omollo" width="1086" height="1448">
+      <svg aria-hidden="true" viewBox="0 0 520 430" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="rib1" x1="0" y1="0" x2="520" y2="430" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#2a2150"/><stop offset=".45" stop-color="#8f6bff"/>
