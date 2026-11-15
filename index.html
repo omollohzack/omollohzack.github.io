@@ -55,7 +55,7 @@
   .nav-links{display:flex;gap:34px}
   .nav-links a{text-decoration:none;color:var(--dim);font-size:.92rem;font-weight:500;padding:6px 0}
   .nav-links a:hover{color:var(--text)}
-  .nav-links a.active{color:var(--text);border-bottom:2px solid var(--violet)}
+  .nav-links a.active{color:var(--text)}
   .talk{text-decoration:none;font-size:.9rem;font-weight:600;border:1px solid rgba(177,140,255,.55);color:var(--text);
         padding:9px 20px;border-radius:999px}
   .talk:hover{border-color:var(--violet2);color:var(--violet2)}
@@ -99,6 +99,51 @@
     .hero-visual{animation:hero-rise 1s .12s cubic-bezier(.2,.7,.2,1) both}
     .strip{animation:hero-rise 1s .22s cubic-bezier(.2,.7,.2,1) both}
     @keyframes hero-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  }
+
+  /* ---------- motion: ambient (CSS-only, transform/opacity) ---------- */
+  @media(prefers-reduced-motion:no-preference){
+    .glow.p{animation:breathe 7s ease-in-out infinite alternate}
+    @keyframes breathe{from{opacity:.72;transform:scale(1)}to{opacity:1;transform:scale(1.07)}}
+    .arc.tr{animation:drift 46s ease-in-out infinite alternate}
+    .arc.bl{animation:drift 58s ease-in-out infinite alternate-reverse}
+    @keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-26px,18px,0)}}
+    h1 .grad{background-size:220% 100%;animation:sheen 9s ease-in-out infinite alternate}
+    @keyframes sheen{from{background-position:0% 50%}to{background-position:90% 50%}}
+    .portrait{animation:floaty 9s ease-in-out infinite alternate}
+    @keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+    .avail .dot{position:relative}
+    .avail .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(46,224,111,.75);animation:ping 2.2s cubic-bezier(0,0,.2,1) infinite}
+    @keyframes ping{0%{transform:scale(.55);opacity:1}80%,100%{transform:scale(1.55);opacity:0}}
+  }
+
+  /* ---------- motion: interaction ---------- */
+  .nav-links a{position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--violet);
+      transform:scaleX(0);transform-origin:left;transition:transform .32s ease}
+  .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+  .btn-v,.btn-o,.talk,.btn{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease,color .25s ease,background .25s ease}
+  .btn-v:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(124,92,255,.48)}
+  .btn-o:hover,.btn:hover{transform:translateY(-2px)}
+  .talk:hover{transform:translateY(-1px)}
+  .card{transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+  .card:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+  .card .glyph{transition:transform .5s ease}
+  .card:hover .glyph{transform:translateY(-6px)}
+  .skill{transition:transform .3s ease,background .3s ease}
+  .skill:hover{transform:translateY(-4px);background:rgba(255,255,255,.04)}
+  .feat svg{display:block;margin:0 auto;transition:transform .3s ease}
+  .feat .code-glyph{display:inline-block;transition:transform .3s ease}
+  .feat:hover svg,.feat:hover .code-glyph{transform:translateY(-3px)}
+
+  /* ---------- motion: scroll reveal (progressive enhancement) ---------- */
+  @supports (animation-timeline: view()){
+    @media(prefers-reduced-motion:no-preference){
+      section,.band,.skill-row{animation:rise-in linear both;animation-timeline:view();animation-range:entry 2% entry 42%}
+      .card{animation:fade-in linear both;animation-timeline:view();animation-range:entry 0% entry 38%}
+      @keyframes rise-in{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+      @keyframes fade-in{from{opacity:0}to{opacity:1}}
+    }
   }
 
   /* feature strip */
