@@ -37,7 +37,8 @@
     --grad:linear-gradient(92deg,#8f6bff 0%,#c4a5ff 55%,#7dd0ff 110%);
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  img,svg{max-width:100%}
   body{background:var(--bg);color:var(--text);
        font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Inter,Roboto,sans-serif;
        -webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -207,8 +208,9 @@
   #about{--wash:rgba(80,220,160,.09)}
   .band.stage{padding:0}
   @media(max-width:900px){
+    .wrap{padding:0 14px}
     header{position:static;min-height:0;display:block;padding:104px 0 40px}
-    .stage{position:static}
+    .stage{position:static;padding:44px 20px}
     .stage.fill{min-height:0;display:block}
   }
   @media(prefers-reduced-motion:reduce){
