@@ -66,11 +66,12 @@
   .glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
   .glow.a{width:640px;height:640px;right:-160px;top:-180px;background:radial-gradient(circle,rgba(124,92,255,.34),transparent 65%)}
   .glow.b{width:480px;height:480px;left:-200px;bottom:-260px;background:radial-gradient(circle,rgba(64,110,255,.16),transparent 65%)}
-  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center;position:relative}
-  @media(max-width:900px){.hero{grid-template-columns:1fr}.hero-visual{margin-top:10px}.portrait{width:min(68%,290px)}}
+  .hero{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(36px,6vw,84px);align-items:center;position:relative}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;gap:38px}.hero-visual{margin:0 auto;width:min(100%,520px)}}
+  @media(max-width:600px){header{padding:120px 0 54px}.hero{gap:30px}.hero-visual{width:100%}}
   .eyebrow{font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:var(--dim);font-weight:600}
   .eyebrow .rule{display:inline-block;vertical-align:middle;width:44px;height:1px;background:var(--dim);margin-left:14px;opacity:.6}
-  h1{font-size:clamp(2.7rem,6.2vw,4.9rem);line-height:1.04;font-weight:700;letter-spacing:-.03em;margin:22px 0 20px}
+  h1{font-size:clamp(3rem,6.5vw,5.25rem);line-height:.99;font-weight:720;letter-spacing:-.055em;margin:24px 0 22px;text-wrap:balance}
   h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .sub{color:var(--dim);font-size:1.13rem;line-height:1.6;max-width:46ch}
   .sub strong{color:var(--text);font-weight:600}
@@ -82,11 +83,17 @@
   .ghost .play{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);font-size:.7rem}
   .motto{margin-top:52px;color:var(--dim);font-size:.8rem;letter-spacing:.26em;text-transform:uppercase}
   .motto::before{content:"";display:inline-block;vertical-align:middle;width:1px;height:26px;background:var(--line);margin-right:16px}
-  .hero-visual{position:relative;display:flex;justify-content:center}
-  .hero-visual svg{position:absolute;z-index:0;width:118%;max-width:none;height:auto;left:50%;top:54%;transform:translate(-50%,-50%);opacity:.9;pointer-events:none}
-  .portrait{position:relative;z-index:1;width:min(86%,370px);aspect-ratio:3/4;object-fit:cover;border-radius:26px;border:1px solid rgba(255,255,255,.14);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 100px rgba(124,92,255,.30)}
+  .hero-visual{position:relative;isolation:isolate;display:flex;justify-content:center;align-items:center;min-height:440px}
+  .hero-visual::before{content:"";position:absolute;z-index:-2;width:112%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.23) 0%,rgba(83,67,160,.12) 38%,transparent 70%);filter:blur(18px)}
+  .hero-visual::after{content:"";position:absolute;z-index:2;inset:12% 7% 0;border-radius:30px;pointer-events:none;background:linear-gradient(180deg,transparent 68%,rgba(5,5,8,.22) 100%);mix-blend-mode:multiply}
+  .hero-visual svg{position:absolute;z-index:-1;width:112%;max-width:none;height:auto;left:50%;top:54%;transform:translate(-50%,-50%);opacity:.34;filter:blur(.3px);pointer-events:none}
+  .portrait{position:relative;z-index:1;display:block;width:min(100%,420px);aspect-ratio:3/4;object-fit:cover;object-position:50% 24%;border-radius:28px;border:1px solid rgba(255,255,255,.12);box-shadow:0 28px 80px rgba(0,0,0,.48),0 0 72px rgba(124,92,255,.18);transform:translateY(0);transition:transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .55s ease}
+  .portrait:hover{transform:translateY(-5px);box-shadow:0 36px 90px rgba(0,0,0,.52),0 0 88px rgba(124,92,255,.24)}
+  @media(max-width:900px){.hero-visual{min-height:0;padding:8px 0 0}.portrait{width:min(78%,380px)}.hero-visual::after{inset:8% 11% 0}}
+  @media(max-width:600px){.portrait{width:min(88%,360px);border-radius:24px}.hero-visual::before{width:100%}}
 
-  /* ---------- sections ---------- */
+  @media(prefers-reduced-motion:no-preference){.hero>div:first-child{animation:hero-rise .8s cubic-bezier(.2,.7,.2,1) both}.hero-visual{animation:hero-rise 1s .12s cubic-bezier(.2,.7,.2,1) both}@keyframes hero-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.portrait{transition:none}}\n\n  /* ---------- sections ---------- */
   section{padding:74px 0 8px;scroll-margin-top:80px}
   .kicker{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--dim);font-weight:600}
   .kicker .rule{display:inline-block;vertical-align:middle;width:40px;height:1px;background:var(--dim);margin-left:12px;opacity:.6}
