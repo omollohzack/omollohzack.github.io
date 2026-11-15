@@ -92,8 +92,8 @@
          padding:8px 16px;font-size:.83rem;color:var(--text);background:rgba(255,255,255,.03)}
   .avail .dot{width:8px;height:8px;border-radius:50%;background:#2ee06f;box-shadow:0 0 10px rgba(46,224,111,.9);position:relative}
   h1{margin:30px 0 24px;font-size:clamp(2.7rem,6.2vw,4.9rem);line-height:1.04;font-weight:800;letter-spacing:-.02em}
-  h1 .nameblock{display:inline-block;background:var(--violet);color:#fff;padding:.06em .24em .1em;
-      box-shadow:0 18px 50px rgba(124,92,255,.35)}
+  h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+      filter:drop-shadow(0 0 16px rgba(124,92,255,.40))}
   .roles{font-size:1.14rem;font-weight:550;color:var(--text)}
   .roles span{color:var(--dim);margin:0 8px}
   .sub{color:var(--dim);font-size:1.08rem;line-height:1.65;max-width:44ch;margin-top:16px}
@@ -119,8 +119,9 @@
     .hero-visual{animation:emerge 1.4s cubic-bezier(.2,.7,.2,1) both}
     @keyframes emerge{from{opacity:0;transform:translateY(34px) scale(1.03)}to{opacity:1;transform:translateY(0) scale(1)}}
     .avail{animation:rise .8s .05s cubic-bezier(.2,.7,.2,1) both}
-    h1 .nameblock{animation:blockin .9s .18s cubic-bezier(.2,.7,.2,1) both}
-    @keyframes blockin{from{opacity:0;transform:translateX(-38px)}to{opacity:1;transform:translateX(0)}}
+    h1{animation:rise .9s .18s cubic-bezier(.2,.7,.2,1) both}
+    h1 .grad{background-size:220% 100%;animation:sheen 6.5s ease-in-out infinite alternate}
+    @keyframes sheen{from{background-position:0% 50%}to{background-position:100% 50%}}
     .roles{animation:rise .8s .34s cubic-bezier(.2,.7,.2,1) both}
     .sub{animation:rise .8s .46s cubic-bezier(.2,.7,.2,1) both}
     .cta{animation:rise .8s .58s cubic-bezier(.2,.7,.2,1) both}
@@ -256,7 +257,7 @@
     <div class="hero">
       <div>
         <p class="avail"><span class="dot"></span>Available for freelance &amp; full-time opportunities</p>
-        <h1><span class="nameblock">Odiwuor Zacharia<br>Omollo</span></h1>
+        <h1>Odiwuor Zacharia<br><span class="grad">Omollo</span></h1>
         <p class="roles">Software Developer <span>&bull;</span> AI Engineer <span>&bull;</span> Problem Solver</p>
         <p class="sub">I build intelligent, scalable and beautiful digital experiences — from smart systems to elegant web applications.</p>
         <div class="cta">
