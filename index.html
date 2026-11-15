@@ -206,7 +206,11 @@
   #writing{--wash:rgba(200,110,255,.10)}
   #about{--wash:rgba(80,220,160,.09)}
   .band.stage{padding:0}
-  @media(max-width:900px){.stage{position:static}.stage.fill{min-height:0}}
+  @media(max-width:900px){
+    header{position:static;min-height:0;display:block;padding:104px 0 40px}
+    .stage{position:static}
+    .stage.fill{min-height:0;display:block}
+  }
   @media(prefers-reduced-motion:reduce){
     header{position:static;min-height:0}
     .stage{position:static}
