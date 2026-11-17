@@ -1,0 +1,31 @@
+# Odiwuor Zacharia Omollo (Lordgrim)
+
+> AI Engineer & Full-Stack Developer based in Nairobi, Kenya. Builds LLM applications, AI agents and open-source software with Python and TypeScript. Research focus: persistent autonomous agents and device interoperability. Publishes his results openly, including negative ones.
+
+## About
+
+- [Portfolio home](https://omollohzack.github.io/): one-page profile — skills, selected projects, writing and contact routes.
+- ORCID: [0009-0000-5988-0039](https://orcid.org/0009-0000-5988-0039)
+
+## Services
+
+- Private AI assistants for businesses: customer-question answering from the business's own documents, English and Swahili, human handover for anything uncertain.
+- Freelance development: API sprints, bug-fix sprints, dashboards and MVPs (Python, TypeScript, React, Node.js).
+
+## Selected projects
+
+- [Project Genesis](https://github.com/omollohzack/project-genesis): a persistent simulated world for autonomous agents with durable identities, memories, relationships and goals. Provider-independent: the inhabitants belong to the world, not the model. 78-test suite, live runs on local and hosted models.
+- [Arbitrum flash-loan research](https://github.com/omollohzack/arbitrum-flashloan-research): flash-loan arbitrage bot studied across 33 route/size combinations; the published finding is that the textbook strategy is net-negative (best result -$1.08). Research, not a trading product.
+
+## Publications
+
+- [The Inhabitants Belong to the World, Not the Model](https://doi.org/10.5281/zenodo.24231543): design paper on provider-independent identity and social commitments in Project Genesis (Zenodo, CC BY 4.0).
+- [I built a flash-loan arbitrage bot on Arbitrum, then proved it loses money](https://dev.to/omollohzack/i-built-a-flash-loan-arbitrage-bot-on-arbitrum-then-proved-it-loses-money-1b66): the post-mortem behind the research repository.
+- [What ten failed AI interviews taught me: specificity](https://www.linkedin.com/pulse/what-ten-failed-ai-interviews-taught-me-specificity-omollo-uhdtf): lessons from AI-conducted technical interviews.
+
+## Profiles
+
+- [GitHub](https://github.com/omollohzack)
+- [LinkedIn](https://www.linkedin.com/in/odiwuor-zacharia)
+- [dev.to](https://dev.to/omollohzack)
+- [Academia.edu](https://independent.academia.edu/OmollohZack)
